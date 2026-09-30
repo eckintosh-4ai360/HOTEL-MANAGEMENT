@@ -48,19 +48,24 @@ export function Sidebar() {
       {/* Sidebar */}
       <aside
         className={cn(
-          'fixed left-0 top-0 h-screen w-64 bg-sidebar text-sidebar-foreground border-r border-sidebar-border pt-20 lg:pt-0 transition-transform duration-300 z-40',
+          'fixed left-0 top-0 z-40 h-screen w-64 border-r border-[#26394b] bg-[#17283a] pt-20 text-[#c7d3dc] transition-transform duration-300 lg:pt-0',
           !isOpen && '-translate-x-full lg:translate-x-0'
         )}
       >
         <div className="flex flex-col h-full">
           {/* Logo */}
-          <div className="px-6 py-8 border-b border-sidebar-border">
-            <h1 className="text-2xl font-bold text-sidebar-primary">Hotel</h1>
-            <p className="text-sm text-sidebar-foreground/60">Management</p>
+          <div className="border-b border-[#2a3d4e] px-6 py-7">
+            <div className="flex items-center gap-3">
+              <div className="grid h-10 w-10 place-items-center rounded-xl bg-[#d4aa5e] text-sm font-black text-[#17283a] shadow-[0_5px_14px_rgba(0,0,0,0.16)]">H</div>
+              <div>
+                <h1 className="text-lg font-bold tracking-[-0.04em] text-white">Havenly</h1>
+                <p className="text-[0.65rem] font-medium uppercase tracking-[0.14em] text-[#93a6b5]">Hotel Group</p>
+              </div>
+            </div>
           </div>
 
           {/* Navigation */}
-          <nav className="flex-1 px-4 py-6 space-y-2">
+          <nav className="flex-1 space-y-1.5 px-4 py-7">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = pathname === item.href;
@@ -69,10 +74,10 @@ export function Sidebar() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    'flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors',
+                    'flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all',
                     isActive
-                      ? 'bg-sidebar-primary text-sidebar-primary-foreground'
-                      : 'text-sidebar-foreground hover:bg-sidebar-accent'
+                      ? 'bg-[#d4aa5e] text-[#17283a] shadow-[0_6px_16px_rgba(0,0,0,0.15)]'
+                      : 'text-[#b5c4ce] hover:bg-[#26394b] hover:text-white'
                   )}
                 >
                   <Icon className="h-5 w-5" />
@@ -83,8 +88,8 @@ export function Sidebar() {
           </nav>
 
           {/* Footer */}
-          <div className="px-4 py-4 border-t border-sidebar-border">
-            <p className="text-xs text-sidebar-foreground/60">
+          <div className="mx-4 mb-5 rounded-2xl border border-[#314556] bg-[#203447] p-4">
+            <p className="text-xs text-[#aabac5]">
               © 2026 Hotel Management
             </p>
           </div>
